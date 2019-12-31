@@ -7,3 +7,9 @@
     <% @spotify_user.top_tracks(limit: 100, offset: 0, time_range: 'medium_term').each do |track| %>
         <%= track.name %><br>
     <% end %>
+
+<p><%= @spotify_user.credentials %></p>
+<br><br>
+<p><%= @spotify_user.credentials.token %></p>
+<p><%= @spotify_user.credentials.refresh_token %></p>
+<p><%= @spotify_user.credentials.expires_at %></p>
