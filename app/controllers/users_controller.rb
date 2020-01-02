@@ -3,11 +3,10 @@ class UsersController < ApplicationController
     def index
       @users = User.all
       render json: @users
-      # redirect_to '/auth/spotify'
     end
 
     def show
-      @user = User.find(params[:id]) 
+      @user = User.find(params[:id])
       render json: {user: @user, artists: @user.artists, tracks: @user.tracks}
     end 
 
@@ -31,6 +30,15 @@ class UsersController < ApplicationController
         user.image = @spotify_user.images[0].url
       end
 
+      #find user's top match
+      @user = User.find_by(email: @spotify_user.email)
+      @user.set_match
+
+      ENV['ACCESS_TOKEN'] = @spotify_user.credentials.token
+      ENV['REFRESH_TOKEN'] = @spotify_user.credentials.refresh_token
+      @user_token_expires = @spotify_user.credentials.expires_at
+
+
       #save users top artist in DB
       #needs differing algorithm so that when user logs in after awhile, it will have new top artists for user
       @spotify_user.top_artists(limit: 100, offset: 0, time_range: 'medium_term').each do |artist|
@@ -49,13 +57,14 @@ class UsersController < ApplicationController
           track.name = track.name
           track.user_id = User.find_by(email: @spotify_user.email).id
         end
-      end      
+      end
 
-      @user = User.find_by(email: @spotify_user.email)
+      #set current user
+      session[:current_user_id] = @user.id
       redirect_to "http://localhost:3001/user/#{@user.id}"
 
       # @test = @spotify_user.top_artists
       # render "spotify"
-      # render json: @test
+      # render json: @spotify_user
     end
   end

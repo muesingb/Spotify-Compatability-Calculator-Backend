@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :display_name
       t.integer :followers
       t.string :image
+      t.integer :top_match
 
       t.timestamps
     end

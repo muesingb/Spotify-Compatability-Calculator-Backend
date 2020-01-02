@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/auth/spotify/callback', to: 'users#spotify'
   get '/user', to: "users#create"
+  get '/match', to: "users#match"
 
   # namespace :api do
   #   namespace :v1 do
