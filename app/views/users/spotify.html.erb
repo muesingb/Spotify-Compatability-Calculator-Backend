@@ -1,12 +1,19 @@
 <h1>Your Spotify</h1>
 <h2>Top Artists:</h2>
-    <% @spotify_user.top_artists(limit: 100, offset: 0, time_range: 'medium_term').each do |artist| %>
-        <%= artist.name %><br>
+    <% @spotify_user.top_artists(limit: 100, offset: 0, time_range: 'medium_term').map do |artist| %>
+        <%= artist.images.first %><br>
     <% end %>
 <h2>Top Tracks:</h2>
     <% @spotify_user.top_tracks(limit: 100, offset: 0, time_range: 'medium_term').each do |track| %>
         <%= track.name %><br>
     <% end %>
+
+
+<p><%= @spotify_user.followers.total %></p>
+<p><%= @spotify_user.images[0].url %></p>
+<img src=<%=@spotify_user.images[0].url%>>
+
+
 
 <p><%= @spotify_user.credentials %></p>
 <br><br>

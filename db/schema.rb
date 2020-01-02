@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_12_29_195715) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
+    t.string "image_info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,6 +33,8 @@ ActiveRecord::Schema.define(version: 2019_12_29_195715) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "display_name"
+    t.integer "followers"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
