@@ -1,24 +1,23 @@
-# README
+# Spotify Compatability Calculator
+> Finds user’s top match based on their Spotify tracks and artists.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Watch the Demo](https://youtu.be/133aZ0ZePDM)
 
-Things you may want to cover:
+<ul>
+  <li />Handled Spotify’s Web API and OAuth through React frontend so users login using their spotify accounts.<br>
+  <li />Recorded user’s top tracks and artists in Postgres database and found user’s top match using Rails framework<br>
+</ul>
 
-* Ruby version
+Technologies:
+<ul>
+  <li />React
+  <li />Ruby on Rails
+  <li />Postgresql
+  <li />HTML/CSS/JS
+</ul>
 
-* System dependencies
+## Meta
 
-* Configuration
+Barbara Muesing – [LinkedIn](https://www.linkedin.com/in/barbara-muesing) – muesingb@gmail.com
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[https://github.com/muesingb/Spotify-Compatability-Calculator-Backend](https://github.com/muesingb/Spotify-Compatability-Calculator-Backend)
